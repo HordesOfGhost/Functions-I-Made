@@ -1,0 +1,11 @@
+<h1>Detailed_Details Function</h1>
+<h2> Takes 4 inputs </h2>
+<ul>
+<li> df = dataframe </li>
+<li> target= Targeted Feature </li>
+<li> outcome= Targeted Outcome </li>
+<li> max_unique_value_count = (Set)Maximum Unique Value Count in between Target and Outcome.Best to set Max_Unique_Count Finite (i.e Less than 25).<br> That is "df[target].nunique()<=25" or "df[outcome].nunique()<=25" <br> Now Choose Max Value Between them.</li>
+</ul>
+<h3> Remove all NaN values before Hand. </h3>
+<h3> If you have dropped rows in Dataframe. ReIndex Your DataFrame (DataFrame.reindex()). </h3>
+<h3> This function doesnot evaluate for strings or objects having large unique_value_counts. </h3>
