@@ -73,7 +73,7 @@ def Detailed_Details(df,feature,outcome,max_unique_value_count):
                     indexes.append(uniq_sorted_ot.index(uniq))
                 
                 #Display
-                html+=f"Total Features {len(df)} <br>"
+                html+=f"<strong>Total Features {len(df)} </strong><br>"
                 html+="<center><table cellpadding=15>"
                     
                 if design==0:
