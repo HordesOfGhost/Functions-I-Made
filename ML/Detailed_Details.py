@@ -73,14 +73,14 @@ def Detailed_Details(df,feature,outcome,max_unique_value_count):
                     indexes.append(uniq_sorted_ot.index(uniq))
                 
                 #Display
-                html+=f"<strong>Total Features {len(df)} </strong><br>"
+                html+=f"Total Features {len(df)}  <br>"
                 html+="<center><table cellpadding=15>"
                     
                 if design==0:
                     html+="<tr>"
-                    html+=f"<b><td><center>{feature}</center> </td> <td>Total No. ({feature})</td> <td> Percentage ({feature}) </td></b>"
+                    html+=f"<td>{feature}</td> <td>Total No. ({feature})</td> <td> Percentage ({feature}) </td>"
                     for i in indexes:
-                        html+=f"<b><td>Total {outcome}<br>({uniq_sorted_ot[i]})</td> <td>Percentage {outcome}<br>({uniq_sorted_ot[i]})</td><b> "
+                        html+=f"<td>Total {outcome}<br>({uniq_sorted_ot[i]})</td> <td>Percentage {outcome}<br>({uniq_sorted_ot[i]})</td> "
                     html+="</tr>"
                     design=1
                 for i in range (0,len(feature_count)):
@@ -141,8 +141,8 @@ def Detailed_Details(df,feature,outcome,max_unique_value_count):
                     html+=f"Mean of {outcome} = {mean_value}<br>"
                     html+="<center><table cellpadding=15>"
                     html+="<tr>"
-                    html+=f"<b><td><center>{feature}</center> </td> <td>Total No. <br>({feature})</td> <td> Percentage <br>({feature}) </td></b>"
-                    html+=f"<b><td>Total No.<br>(Greater Than Mean)</td> <td>Percentage<br>(Greater Than Mean)</td><td>Total No.<br>(Less Than Mean)</td> <td>Percentage <br>(Less Than Mean)</td> </b>"
+                    html+=f"<td><center>{feature}</center> </td> <td>Total No. <br>({feature})</td> <td> Percentage <br>({feature}) </td>"
+                    html+=f"<td>Total No.<br>(Greater Than Mean)</td> <td>Percentage<br>(Greater Than Mean)</td><td>Total No.<br>(Less Than Mean)</td> <td>Percentage <br>(Less Than Mean)</td> "
                     html+="</tr>"
                     design=1
                 
@@ -222,18 +222,18 @@ def Detailed_Details(df,feature,outcome,max_unique_value_count):
                         html+=f"Mean of {feature} = {mean_value}<br>"
                         html+="<center><table cellpadding=15>"
                         html+="<tr>"
-                        html+=f"<b><td><center>{feature}</center> </td> <td>Total No. <br>({feature})</td> <td> Percentage <br>({feature}) </td></b>"
+                        html+=f"<td><center>{feature}</center> </td> <td>Total No. <br>({feature})</td> <td> Percentage <br>({feature}) </td>"
                         for uniq in uniq_sorted_ot:
-                            html+=f"<b><td>Total Outcome<br>({uniq})</td><td>Percentage Outcome<br>({uniq})</b>"
+                            html+=f"<td>Total Outcome<br>({uniq})</td><td>Percentage Outcome<br>({uniq})"
                         html+="</td>"
                         html+="</tr>"
                         design=1
                 
                     design_feature=0
-                    html+=f"<tr><td><b>Greater Than Mean</b></td><td>{total_abm}</td><td>{round((total_abm/total_data)*100,2)}</td>"
+                    html+=f"<tr><td>Greater Than Mean</td><td>{total_abm}</td><td>{round((total_abm/total_data)*100,2)}</td>"
                     for uniq in uniq_sorted_ot:
                         html+=f"<td>{total_feature_abm[uniq]}</td><td>{percent_feature_abm[uniq]} %</td>"
-                    html+=f"<tr><td><b>Less Than Mean</b></td><td>{total_blm}</td><td>{round((total_blm/total_data)*100,2)}</td>"
+                    html+=f"<tr><td>Less Than Mean</td><td>{total_blm}</td><td>{round((total_blm/total_data)*100,2)}</td>"
                     for uniq in uniq_sorted_ot:
                         html+=f"<td>{total_feature_blm[uniq]}</td><td>{percent_feature_blm[uniq]} %</td>"  
                     html+="</table></center>"
@@ -273,17 +273,17 @@ def Detailed_Details(df,feature,outcome,max_unique_value_count):
                         html+=f"Mean of {outcome} ={mean_value_outcome}<br>"
                         html+="<center><table cellpadding=15>"
                         html+="<tr>"
-                        html+=f"<td><center><b>{feature}</center> </td> <td>Total No. <br>({feature})</td> <td> Percentage <br>({feature}) </td></b>"
-                        html+=f"<td> <b>Total Outcome <br>Greater Than Mean<br>({mean_value_outcome})</td><td> Percentage Outcome <br>Greater Than Mean<br>({mean_value_outcome})</td></b>"
-                        html+=f"<td><b> Total Outcome <br>Less Than Mean<br>({mean_value_outcome})</td><td> Percentage Outcome <br>Less Than Mean<br>({mean_value_outcome})</td></b>"
+                        html+=f"<td>{feature} </td> <td>Total No. <br>({feature})</td> <td> Percentage <br>({feature}) </td>"
+                        html+=f"<td> Total Outcome <br>Greater Than Mean<br>({mean_value_outcome})</td><td> Percentage Outcome <br>Greater Than Mean<br>({mean_value_outcome})</td>"
+                        html+=f"<td> Total Outcome <br>Less Than Mean<br>({mean_value_outcome})</td><td> Percentage Outcome <br>Less Than Mean<br>({mean_value_outcome})</td>"
                         html+="</td>"
                         html+="</tr>"
                         design=1
                 
                     design_feature=0
-                    html+=f"<tr><td><b>Greater Than Mean<br>({mean_value})</td><td>{total_abm}</td><td>{round((total_abm/total_data)*100,2)} %</td><td>{total_out_abm_fet_abm}</td><td>{per_out_abm_fet_abm} %</td><td>{total_out_blm_fet_abm}</td><td>{per_out_blm_fet_abm} %</td></b>"
+                    html+=f"<tr><td>Greater Than Mean<br>({mean_value})</td><td>{total_abm}</td><td>{round((total_abm/total_data)*100,2)} %</td><td>{total_out_abm_fet_abm}</td><td>{per_out_abm_fet_abm} %</td><td>{total_out_blm_fet_abm}</td><td>{per_out_blm_fet_abm} %</td>"
                     
-                    html+=f"<tr><td><b>Less Than Mean<br>({mean_value})</td><td>{total_blm}</td><td>{round((total_blm/total_data)*100,2)} %</td><td>{total_out_abm_fet_blm}</td><td>{per_out_abm_fet_blm} %</td><td>{total_out_blm_fet_blm}</td><td>{per_out_blm_fet_blm} %</td></b>"
+                    html+=f"<tr><td>Less Than Mean<br>({mean_value})</td><td>{total_blm}</td><td>{round((total_blm/total_data)*100,2)} %</td><td>{total_out_abm_fet_blm}</td><td>{per_out_abm_fet_blm} %</td><td>{total_out_blm_fet_blm}</td><td>{per_out_blm_fet_blm} %</td>"
                       
                     html+="</table></center>"
                     
@@ -341,9 +341,9 @@ def Detailed_Details(df,feature,outcome,max_unique_value_count):
             html+="<center><table cellpadding=15>"
             if design==0:
                 html+="<tr>"
-                html+=f"<td><center><b>{feature}</center> </td> <td>Total No. <br>({feature})</td> <td> Percentage <br>({feature}) </td></b>"
+                html+=f"<td><center>{feature}</center> </td> <td>Total No. <br>({feature})</td> <td> Percentage <br>({feature}) </td>"
                 for i in indexes:
-                    html+=f"<b><td>Total No.<br>({uniq_sorted_ot[i]})</td> <td>Percentage <br>({uniq_sorted_ot[i]})</td></b> "
+                    html+=f"<td>Total No.<br>({uniq_sorted_ot[i]})</td> <td>Percentage <br>({uniq_sorted_ot[i]})</td> "
                 html+="</tr>"
                 design=1
             for i in range (0,len(feature_count)):
@@ -426,18 +426,18 @@ def Detailed_Details(df,feature,outcome,max_unique_value_count):
                 html+=f"Mean of {feature} = {mean_value}<br>"
                 html+="<center><table cellpadding=15>"
                 html+="<tr>"
-                html+=f"<td><center><b>{feature}</center> </td> <td>Total No. <br>({feature})</td> <td> Percentage <br>({feature}) </b></td>"
+                html+=f"<td><center>{feature}</center> </td> <td>Total No. <br>({feature})</td> <td> Percentage <br>({feature}) </td>"
                 for uniq in uniq_sorted_ot:
-                    html+=f"<td><b>Total Outcome<br>({uniq})</td><td>Percentage Outcome<br>({uniq})</b>"
+                    html+=f"<td>Total Outcome<br>({uniq})</td><td>Percentage Outcome<br>({uniq})"
                 html+="</td>"
                 html+="</tr>"
                 design=1
                 
                 design_feature=0
-                html+=f"<tr><td><b>Greater Than Mean</td><td>{total_abm}</td><td>{round((total_abm/total_data)*100,2)}</td></b>"
+                html+=f"<tr><td>Greater Than Mean</td><td>{total_abm}</td><td>{round((total_abm/total_data)*100,2)}</td>"
                 for uniq in uniq_sorted_ot:
                     html+=f"<td>{total_feature_abm[uniq]}</td><td>{percent_feature_abm[uniq]} %</td>"
-                html+=f"<tr><td><b>Less Than Mean</td><td>{total_blm}</td><td>{round((total_blm/total_data)*100,2)}</td></b>"
+                html+=f"<tr><td>Less Than Mean</td><td>{total_blm}</td><td>{round((total_blm/total_data)*100,2)}</td>"
                 for uniq in uniq_sorted_ot:
                     html+=f"<td>{total_feature_blm[uniq]}</td><td>{percent_feature_blm[uniq]} %</td>"  
                 html+="</table></center>"
@@ -487,8 +487,8 @@ def Detailed_Details(df,feature,outcome,max_unique_value_count):
                 html+=f"Mean of {outcome} = {mean_value}<br>"
                 html+="<center><table cellpadding=15>"
                 html+="<tr>"
-                html+=f"<td><b><center>{feature}</center> </td> <td>Total No. <br>({feature})</td> <td> Percentage <br>({feature}) </td></b>"
-                html+=f"<td><b>Total No.<br>(Greater Than Mean)</td> <td>Percentage<br>(Greater Than Mean)</td><td>Total No.<br>(Less Than Mean)</td> <td>Percentage <br>(Less Than Mean)</td> </b>"
+                html+=f"<td><center>{feature}</center> </td> <td>Total No. <br>({feature})</td> <td> Percentage <br>({feature}) </td>"
+                html+=f"<td>Total No.<br>(Greater Than Mean)</td> <td>Percentage<br>(Greater Than Mean)</td><td>Total No.<br>(Less Than Mean)</td> <td>Percentage <br>(Less Than Mean)</td> "
                 html+="</tr>"
                 design=1
                 
