@@ -500,9 +500,9 @@ def Detailed_Details(df,feature,outcome,max_unique_value_count):
             html+="</table></center>"
             display(HTML(html))
         
-    if(df_feature.nunique()>len(df)/1.5 and str(check_type_feature not in type)):
+    if(df_feature.nunique()>max_unique_value_count and (str(check_type_feature) not in type)):
         html_alert=f"<h2><center>CAN'T_EVALUATE_ERROR:<font color='red'> {feature}</font> as <font color='red'> Feature </font> is of type <font color='red'>{check_type_feature}</font> having a large number of unique values.</center></h2>"
         display(HTML(html_alert))          
-    if(df_outcome.nunique()>len(df)/1.5 and str(check_type_outcome not in type)):
+    if(df_outcome.nunique()>max_unique_value_count and (str(check_type_outcome) not in type)):
         html_alert=f"<h2><center>CAN'T_EVALUATE_ERROR:<font color='red'> {outcome}</font> as <font color ='red'>Outcome </font> is of type <font color='red'>{check_type_outcome}</font> having a large number of unique values.</center></h2>"
         display(HTML(html_alert))  
